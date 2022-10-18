@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="out"></div>
+    <script>
+        let out = document.getElementById("out");
+        const url = "https://randomuser.me/api?results=5";
+
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            let usernames = data.results;
+            console.log(usernames)
+            usernames.forEach(function(user) {
+                out.innerHTML += `${user.name.title} ${user.name.first} ${user.name.last}`;
+                out.innerHTML += `<img src="${user.picture.thumbnail}"> </br>`;
+            })
+        })
+    </script>
+</body>
+</html>

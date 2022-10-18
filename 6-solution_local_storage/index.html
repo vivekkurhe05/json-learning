@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="output1"></div>
+    <div id="output2"></div>
+</body>
+
+<script>
+    var temp = {
+        "firstName" : "Vivek",
+        "lastName" : "Kurhe",
+        "age" : 29,
+        "city" : "Amravati",
+        "state" : "Maharashtra",
+        "country" : "India",
+    }
+
+    var tempString = JSON.stringify(temp);
+    localStorage.setItem('user_details', tempString);
+
+    var tempObj = localStorage.getItem('user_details');
+    var useObj = JSON.parse(tempObj);
+    console.log(useObj);
+    var output1 = document.getElementById('output1');
+    output1.innerHTML = useObj.firstName
+</script>
+</html>
